@@ -173,7 +173,7 @@ const Wizard: NextPageWithLayout = () => {
         setNewProjectLoading(false)
         ui.setNotification({
           category: 'error',
-          message: `Invalid Postgres Version`,
+          message: `Invalid Postgres version, should start with a number between 12-19, a dot and additional characters, i.e. 15.2 or 15.2.0-3`,
         })
         return
       }
