@@ -169,6 +169,15 @@ const Wizard: NextPageWithLayout = () => {
       kps_enabled: kpsEnabled,
     }
     if (postgresVersion) {
+      if (!postgresVersion.match(/1[2-9]\..*/)) {
+        setNewProjectLoading(false)
+        ui.setNotification({
+          category: 'error',
+          message: `Invalid Postgres Version`,
+        })
+        return
+      }
+
       data['custom_supabase_internal_requests'] = {
         ami: { search_tags: { 'tag:postgresVersion': postgresVersion } },
       }
@@ -310,6 +319,7 @@ const Wizard: NextPageWithLayout = () => {
                       id="custom-postgres-version"
                       layout="horizontal"
                       label="Postgres Version"
+                      autoComplete="off"
                       descriptionText={
                         <p>
                           Specify a custom version of Postgres (Defaults to the latest)
