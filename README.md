@@ -5,7 +5,7 @@
 
 ---
 
-# Supabase
+# Supabase (tt-dev-ai)
 
 [Supabase](https://supabase.com) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
 
